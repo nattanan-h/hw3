@@ -30,9 +30,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String? username;
+  String username;
 
-  Future<void> _loginUser() async {
+  void _loginUser() {
     //TODO
     setState(() {});
   }
