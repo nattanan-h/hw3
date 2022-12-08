@@ -35,8 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
   String username = 'User';
 
   void _loginUser() {
+    //TODO
     setState(() {
-      //TODO
+
     });
   }
 
