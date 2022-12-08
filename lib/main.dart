@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,12 +30,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String username = 'User';
+  String? username;
 
-  void _loginUser() {
-    setState(() {
-      //TODO
-    });
+  Future<void> _loginUser() async {
+    //TODO
+    setState(() {});
+  }
+
+  String greetText() {
+    //TODO
+    return '';
   }
 
   @override
@@ -51,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Hello $username',
+              greetText(),
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ],
@@ -69,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
 /*
 Provided Async function getUserInfo
  */
+int index = 0;
+final usernameList = ['Peter','Jacob','Steve',null];
 Future<String?> getUserInfo() async {
-  final usernameList = ['Peter','David',null];
-  return Future.delayed(const Duration(seconds: 3),() => usernameList[Random().nextInt(2)]);
+  index = index % usernameList.length;
+  return Future.delayed(const Duration(seconds: 3),() => usernameList[index++]);
 }
