@@ -30,17 +30,48 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String username;
+  String? username;
+  bool state = false;
 
-  void _loginUser() {
+  void _loginUser() async {
     //TODO
-    setState(() {});
+    setState(() {
+      state = true;
+    });
+    username = await getUserInfo();
+    setState(() {
+      state = false;
+    });
+
+    // state = 1;
+    // greetText();
+    // print(state);
+    // for (int i = 1; i <= 2;i++){
+    //   if ( i == 2){
+    //     state = 0;
+    //     print(state);
+    //     greetText();
+    //   }
+    // }
   }
 
   String greetText() {
     //TODO
-    return '';
+    if (state) {
+      return ('Logging in...');
+    }
+    else{
+      if (username == null){
+        return 'Login fails';
+      }
+      return 'Hello $username';
+    }
+    return ('Logging in...');
   }
+
+  // Future<String> loading() {
+  //   return
+  // }
 
   @override
   Widget build(BuildContext context) {
